@@ -36,13 +36,13 @@ func Load() *Config {
 		FrontendURL:           getEnv("FRONTEND_URL", ""),
 		RedisURL:              getEnv("REDIS_URL", ""),
 		JWTSecret:             getEnv("JWT_SECRET", ""),
-		JWTTTL:                getEnvInt("JWT_TTL_HOURS", 0),            // 24 hours default
-		RateLimitRPS:          getEnvFloat("RATE_LIMIT_RPS", 0),         // 10 requests per second for general API
-		RateLimitBurst:        getEnvInt("RATE_LIMIT_BURST", 0),         // Allow bursts of 20
-		RateLimitAuthRPS:      getEnvFloat("RATE_LIMIT_AUTH_RPS", 0),    // 5 requests per second for auth (stricter)
-		RateLimitAuthBurst:    getEnvInt("RATE_LIMIT_AUTH_BURST", 0),    // Allow bursts of 10
-		RateLimitShortenRPS:   getEnvFloat("RATE_LIMIT_SHORTEN_RPS", 0), // 2 requests per second for URL shortening (stricter)
-		RateLimitShortenBurst: getEnvInt("RATE_LIMIT_SHORTEN_BURST", 0), // Allow bursts of 5
+		JWTTTL:                getEnvInt("JWT_TTL_HOURS", 24),             // 24 hours default
+		RateLimitRPS:          getEnvFloat("RATE_LIMIT_RPS", 10.0),        // 10 requests per second for general API
+		RateLimitBurst:        getEnvInt("RATE_LIMIT_BURST", 20),          // Allow bursts of 20
+		RateLimitAuthRPS:      getEnvFloat("RATE_LIMIT_AUTH_RPS", 5.0),    // 5 requests per second for auth (stricter)
+		RateLimitAuthBurst:    getEnvInt("RATE_LIMIT_AUTH_BURST", 10),     // Allow bursts of 10
+		RateLimitShortenRPS:   getEnvFloat("RATE_LIMIT_SHORTEN_RPS", 2.0), // 2 requests per second for URL shortening (stricter)
+		RateLimitShortenBurst: getEnvInt("RATE_LIMIT_SHORTEN_BURST", 5),   // Allow bursts of 5
 	}
 }
 
